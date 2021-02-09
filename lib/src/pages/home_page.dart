@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_validation/src/bloc/provider.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final bloc = Provider.of(context);
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home Page'),
-      ),
-      body: Container(
-        alignment: Alignment.center,
-        child: Text('Home Page'),
+      appBar: AppBar(title: Text('HOMEPAGE')),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Email: ${bloc.email}'),
+          Divider(),
+          Text('Password:${bloc.password}'),
+        ],
       ),
     );
   }
